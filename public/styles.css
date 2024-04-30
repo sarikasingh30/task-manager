@@ -8,3 +8,38 @@
     margin: auto;
     text-align: center;
 }
+
+.single-task{
+    display: flex;
+    margin: auto;
+    /* justify-content: space-around; */
+    
+}
+.headNo{
+    width: 60%;
+}
+.task-links{
+    display: flex;
+    justify-content: space-around;
+    width: 35%;
+    margin: auto;
+}
+
+
+
+.edit-link{
+    text-decoration: none;
+    border:3px solid blue;
+    padding-left: 1%;
+    padding-right: 1%;
+    height: 50%;
+}
+.delete-btn{
+    background-color: red;
+    color: white;
+    margin:auto;
+    height: 50%;
+    border: none;
+    
+
+}

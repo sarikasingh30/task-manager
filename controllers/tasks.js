@@ -46,7 +46,7 @@ const deleteTask = async (req, res) => {
   let { id: ans } = req.params;
   const task = await Tasks.findOneAndDelete({ _id: ans });
   res.status(201).json({ task });
-  res.end(`<h1>Delete Item</h1>`);
+  // res.end(`<h1>Delete Item</h1>`);
 };
 
 module.exports = { getAllTasks, createTask, getTask, updateTask, deleteTask };
