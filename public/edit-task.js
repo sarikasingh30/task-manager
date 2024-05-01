@@ -14,7 +14,7 @@ const showTask = async () => {
   try {
     const data= await fetch(`/api/v1/tasks/${id}`).then((res)=>res.json())
     const { _id: taskID, completed, name } = data.task
-    console.log(taskID,name,completed)
+    // console.log(taskID,name,completed)
     taskIDDOM.textContent = taskID
     taskNameDOM.value = name
     tempName = name
@@ -34,19 +34,18 @@ editFormDOM.addEventListener('submit', async (e) => {
   try {
     const taskName = taskNameDOM.value
     const taskCompleted = taskCompletedDOM.checked
-
-//    const data=await fetch(`/api/v1/tasks/${id}`, { method: 'PATCH',
-//    body: JSON.stringify({
-//      title: 'foo',
-//    }),
-//    headers: {
-//      'Content-type': 'application/json; charset=UTF-8',
-//    },
-//  })
-//    .then((response) => response.json())
-//    .then((json) => console.log(json));
-
-    const { _id: taskID, completed, name } = task
+    const res={
+      name:taskName,
+      completed:taskCompleted
+    }
+   const data=await fetch(`/api/v1/tasks/${id}`, { method: 'PATCH',
+   body: JSON.stringify(res),
+   headers: {
+     'Content-type': 'application/json; charset=UTF-8',
+   },
+ }).then((response) => response.json())
+ console.log(data.task)
+    const { _id: taskID, completed, name } = data.task
 
     taskIDDOM.textContent = taskID
     taskNameDOM.value = name
